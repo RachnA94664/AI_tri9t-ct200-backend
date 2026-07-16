@@ -1,0 +1,49 @@
+{
+  "1": {
+    "generation_id": 1,
+    "selection_id": 1,
+    "generated_at": "2026-07-16T10:10:53.981390+00:00",
+    "source_nodes": [
+      {
+        "node_id": 7,
+        "content_hash": "95ff8f7484dac8e3fb51fee151c481c96b6034f0bb12e0b5a0d72d76788045f3"
+      },
+      {
+        "node_id": 15,
+        "content_hash": "375ccd36709b1a0a8f94e965784a2d4374b5f518c1c68b938c2fb28999aa4ff4"
+      }
+    ],
+    "test_cases": [
+      {
+        "id": "TC-1",
+        "title": "Low Battery Detection",
+        "steps": [
+          "Set the device to simulate 300 measurement cycles",
+          "Measure blood pressure 3 times to simulate typical use",
+          "Verify the low battery icon is displayed"
+        ],
+        "expected_result": "The low battery icon should be displayed"
+      },
+      {
+        "id": "TC-2",
+        "title": "Overpressure Protection - Single Exceedance",
+        "steps": [
+          "Set the cu\ufb00 pressure to 300 mmHg",
+          "Trigger the emergency de\ufb02ation valve to simulate sensor fault",
+          "Verify the device halts in\ufb02ation and vents the cu\ufb00 within 2 seconds"
+        ],
+        "expected_result": "The device should trigger the emergency de\ufb02ation valve and vent the cu\ufb00 within 2 seconds"
+      },
+      {
+        "id": "TC-3",
+        "title": "Overpressure Protection - Prolonged Exceedance",
+        "steps": [
+          "Set the cu\ufb00 pressure to 300 mmHg and hold for 3 seconds",
+          "Trigger the emergency de\ufb02ation valve to simulate sensor fault",
+          "Verify the device halts in\ufb02ation and vents the cu\ufb00 within 2 seconds"
+        ],
+        "expected_result": "The device should trigger the emergency de\ufb02ation valve and vent the cu\ufb00 within 2 seconds"
+      }
+    ]
+  }
+}
