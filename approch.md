@@ -396,3 +396,16 @@ without reading the diff text, could miss that some changes matter more
 than others — this is an explicit, acknowledged limitation of the
 staleness signal built in a later phase.
 
+## Browse & Selection API Design
+version="latest" resolves to the highest DocumentVersion.id (most recently
+ingested), so callers never need to know version numbers to see current
+content. Search uses SQLite's LIKE (case-insensitive via ilike) rather
+than FTS5 — the document is small enough (~30 nodes) that full-text
+indexing overhead isn't justified.
+
+Selections store (node_id, document_version_id) pairs explicitly rather
+than deriving version from the node at read time. This is the mechanism
+that satisfies the requirement that old selections resolve to the exact
+text they were created against: even after re-ingestion creates new Node
+rows for a new version, a SelectionItem's pinned node_id still points at
+the original row, whose body_text/content_hash never changes.
