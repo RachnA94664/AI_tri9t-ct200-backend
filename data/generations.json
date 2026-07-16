@@ -45,5 +45,48 @@
         "expected_result": "The device should trigger the emergency de\ufb02ation valve and vent the cu\ufb00 within 2 seconds"
       }
     ]
+  },
+  "2": {
+    "generation_id": 2,
+    "selection_id": 2,
+    "generated_at": "2026-07-16T10:49:52.682076+00:00",
+    "source_nodes": [
+      {
+        "node_id": 7,
+        "content_hash": "95ff8f7484dac8e3fb51fee151c481c96b6034f0bb12e0b5a0d72d76788045f3"
+      }
+    ],
+    "test_cases": [
+      {
+        "id": "TC-1",
+        "title": "Low Battery Icon Display",
+        "steps": [
+          "Set the device to measure blood pressure three times a day.",
+          "Wait until the device displays a low battery icon.",
+          "Verify the icon is displayed correctly."
+        ],
+        "expected_result": "The low battery icon is displayed once the remaining capacity falls below 15%."
+      },
+      {
+        "id": "TC-2",
+        "title": "Battery Life Under Typical Use",
+        "steps": [
+          "Set the device to measure blood pressure three times a day.",
+          "Monitor the device's battery life until it reaches 15% capacity.",
+          "Verify the device has approximately 300 measurement cycles before requiring battery replacement."
+        ],
+        "expected_result": "The device has approximately 300 measurement cycles before requiring battery replacement."
+      },
+      {
+        "id": "TC-3",
+        "title": "Battery Life Calculation",
+        "steps": [
+          "Set the device to measure blood pressure three times a day.",
+          "Calculate the number of measurement cycles after 15% battery capacity is reached.",
+          "Verify the calculated value is close to 300 measurement cycles."
+        ],
+        "expected_result": "The calculated value is close to 300 measurement cycles."
+      }
+    ]
   }
 }
