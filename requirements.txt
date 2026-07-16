@@ -8,6 +8,4 @@ pdfplumber
 pytest
 httpx
 requests
-groq
-
 huggingface_hub
